@@ -3,7 +3,7 @@ from .models import FlameStatus
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views import View
-
+import json
 class GetFlameStatusView(View):
     def get(self, request, *args, **kwargs):
         try:
@@ -15,7 +15,12 @@ class GetFlameStatusView(View):
 @method_decorator(csrf_exempt, name='dispatch')
 class UpdateFlameStatusView(View):
     def post(self, request, *args, **kwargs):
-        status = request.POST.get('status')
+        try:
+            data = json.loads(request.body)
+            status = data.get('status')
+        except json.JSONDecodeError:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'})
+
         if status in [choice[0] for choice in FlameStatus.STATUS_CHOICES]:
             FlameStatus.objects.update_or_create(pk=1, defaults={'status': status})
             return JsonResponse({'status': 'success', 'message': 'Flame status updated'})
