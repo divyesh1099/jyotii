@@ -6,7 +6,12 @@ class FlameStatus(models.Model):
         ('Low', 'Low'),
         ('No', 'No'),
     ]
-    status = models.CharField(max_length=6, choices=STATUS_CHOICES, default='No')
+    status = models.CharField(
+        max_length=6,
+        choices=STATUS_CHOICES,
+        default='No',
+        verbose_name='Status'  # Human-readable name for the field.
+    )
     timestamp = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
@@ -16,3 +21,7 @@ class FlameStatus(models.Model):
     
     def __str__(self):
         return f"Status: {self.status} at {self.timestamp}"
+    
+    class Meta:
+        verbose_name = 'Flame Status'
+        verbose_name_plural = 'Flame Statuses'
