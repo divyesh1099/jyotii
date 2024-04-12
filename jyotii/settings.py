@@ -46,7 +46,6 @@ INSTALLED_APPS = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 SECURE_SSL_REDIRECT = False
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -77,17 +76,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'jyotii.wsgi.application'
-
-ASGI_APPLICATION = 'jyotii.asgi.application'
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
