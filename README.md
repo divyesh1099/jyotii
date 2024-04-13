@@ -1,22 +1,30 @@
 # Jyotii
 
-Jyotii is a Django-based application designed to interact with IoT devices for tracking the status of a diya (lamp), ensuring it remains lit throughout the Navratri festival period. This project showcases real-time communication between a server and IoT devices, leveraging Django Channels for WebSocket communication.
+Jyotii is a comprehensive IoT project designed to monitor the status of a Navratri diya (lamp) ensuring it remains lit continuously for 9 days. The system includes an Arduino Nano with an old bootloader CH340, a NodeMCU ESP8266MOD, and an analog flame sensor. The backend server is built with Flask and deployed on Heroku, while the frontend is developed in Flutter.
+
+## Working Demo
+[Live Demo Video](https://1drv.ms/v/s!Av9ohgmVUvX8bw-YeF7jfEV9EG0?e=XjxeQm)
 
 ## Features
 
-- **Real-Time Updates**: Utilizes WebSockets for instant status updates from IoT devices.
-- **IoT Integration**: Seamlessly connects with IoT devices monitoring diya status.
-- **Scalable Architecture**: Built on Django Channels, allowing for easy scaling to handle multiple device connections.
-- **User-Friendly Dashboard**: Provides a web interface for users to monitor and control the diya status.
+- **Real-Time Monitoring**: Provides live status updates of the Navratri Diya via a Flask server.
+- **IoT Integration**: Utilizes Arduino and NodeMCU ESP8266MOD for precise and non-invasive diya monitoring.
+- **Cross-Platform App**: A user-friendly Flutter frontend for monitoring and interacting with the IoT device.
+- **Scalable Server**: The Flask server can handle connections efficiently and is deployed on Heroku for high availability.
+
+## Project Structure
+
+- `flutter_frontend/`: Contains all the Flutter application code.
+- `jyotiiFlask/`: Contains the Flask server application code.
 
 ## Getting Started
 
 ### Prerequisites
 
 - Python 3.8 or later
-- Django 3.2 or later
-- Django Channels
-- A Redis server for Channels layer
+- Flask 1.1 or later
+- Arduino IDE
+- Flutter 2.0 or later
 
 ### Installation
 
@@ -26,42 +34,52 @@ Jyotii is a Django-based application designed to interact with IoT devices for t
    cd jyotii
    ```
 
-2. Set up a virtual environment and activate it:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate # On Windows use `venv\Scripts\activate`
-   ```
+2. Set up the Flask server:
 
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   - Navigate to the `jyotiiFlask` directory:
+     ```bash
+     cd jyotiiFlask
+     ```
 
-4. Set up the Django database:
-   ```bash
-   python manage.py migrate
-   ```
+   - Install the required dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
 
-5. Run the development server:
-   ```bash
-   python manage.py runserver
-   ```
+   - Run the Flask server:
+     ```bash
+     flask run
+     ```
 
-6. Access the web application at `http://localhost:8000`.
+3. Set up the Flutter app:
+
+   - Navigate to the `flutter_frontend` directory:
+     ```bash
+     cd flutter_frontend
+     ```
+
+   - Install Flutter dependencies:
+     ```bash
+     flutter pub get
+     ```
+
+   - Run the app:
+     ```bash
+     flutter run
+     ```
 
 ### Configuration
 
-- **Environment Variables**: Configure the necessary environment variables for production, including `DATABASE_URL`, `REDIS_URL`, and `SECRET_KEY`.
-
-- **Static and Media Files**: Set up AWS S3 for handling static and media files in production as described in the project setup guide.
+- **Environment Variables**: Configure necessary environment variables such as `DATABASE_URL` and `SECRET_KEY`.
+- **IoT Device Setup**: Ensure the Arduino and NodeMCU are programmed with the correct firmware which can be found in the `firmware` directory.
 
 ## Deployment
 
-Refer to the project setup guide for detailed instructions on deploying to AWS using Elastic Beanstalk and setting up RDS and S3 for a production environment.
+Refer to the included deployment guide for detailed instructions on deploying the Flask server to Heroku and setting up the Flutter app for production use.
 
 ## Contributing
 
-We welcome contributions! Open a PR, we'll act upon it asap. 
+Contributions are welcome! Please feel free to fork the repository, make your changes, and submit a pull request.
 
 ## License
 
@@ -70,4 +88,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Papa
+- Navratri
+- Meri Berojgari
 - Moti❤️
