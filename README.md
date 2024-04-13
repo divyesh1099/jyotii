@@ -2,7 +2,16 @@
 
 Jyotii is a comprehensive IoT project designed to monitor the status of a Navratri diya (lamp) ensuring it remains lit continuously for 9 days. The system includes an Arduino Nano with an old bootloader CH340, a NodeMCU ESP8266MOD, and an analog flame sensor. The backend server is built with Flask and deployed on Heroku, while the frontend is developed in Flutter.
 
-## Working Demo
+## App Screenshots
+
+![Logo](https://github.com/divyesh1099/jyotii/assets/65925922/ae7e79a5-4ca2-44f1-8e76-5677eaa3bcff)
+
+
+![In App Flame Status Home Screen](https://github.com/divyesh1099/jyotii/assets/65925922/1a7e67cd-3e9f-45b5-b16e-8c2564f2160d)
+
+
+
+## Working Demo Video
 [Live Demo Video](https://1drv.ms/v/s!Av9ohgmVUvX8bw-YeF7jfEV9EG0?e=XjxeQm)
 
 ## Features
